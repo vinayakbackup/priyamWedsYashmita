@@ -83,7 +83,6 @@ export function Swirls({ className }: { className?: string }) {
 export function InviteArt({ className = "" }: { className?: string }) {
   return (
     <div className={`relative mx-auto aspect-[300/400] w-full ${className}`}>
-      <Asset src={""} alt="" fallback={null} />
       <div className="absolute inset-x-0 bottom-0 top-[5%]">
         <ArchAsset />
       </div>
