@@ -48,8 +48,8 @@ function Index() {
         >
           <Particles className="pointer-events-none absolute inset-0 h-full w-full" />
           <div className="relative flex flex-1 flex-col items-center justify-center">
-            <p className="rise mb-1 font-display text-sm italic uppercase tracking-[0.5em] text-ivory sm:text-base">You're Invited</p>
-            <div className="rise w-[96vw] max-w-[min(620px,62vh)]" style={{ animationDelay: ".4s" }}><InviteArt /></div>
+            <p className="rise mb-3 font-display text-sm italic uppercase tracking-[0.5em] text-ivory sm:text-base">You're Invited</p>
+            <div className="rise w-[94vw] max-w-[min(560px,64vh)]" style={{ animationDelay: ".4s" }}><InviteArt /></div>
           </div>
           <div className="relative w-full text-center">
             <Swirls className="mx-auto w-full max-w-md" />
