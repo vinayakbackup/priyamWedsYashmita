@@ -64,7 +64,7 @@ function Reveal({ children, className = "" }: { children: React.ReactNode; class
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current!;
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { el.classList.add("in"); io.disconnect(); } }, { threshold: 0.15 });
+    const io = new IntersectionObserver(([e]) => { if (e?.isIntersecting) { el.classList.add("in"); io.disconnect(); } }, { threshold: 0.15 });
     io.observe(el); return () => io.disconnect();
   }, []);
   return <div ref={ref} className={`reveal ${className}`}>{children}</div>;
@@ -171,7 +171,7 @@ function Main() {
           ) : (
             <form action={rsvp.formEndpoint} method="POST" className="mx-auto mt-6 grid max-w-sm gap-3 text-left">
               {["name", "guests", "message"].map((n) => (
-                <input key={n} name={n} required={n === "name"} placeholder={n[0].toUpperCase() + n.slice(1)} className="rounded-md border bg-transparent px-4 py-3 text-ivory placeholder:text-muted-foreground" />
+                <input key={n} name={n} required={n === "name"} placeholder={n.charAt(0).toUpperCase() + n.slice(1)} className="rounded-md border bg-transparent px-4 py-3 text-ivory placeholder:text-muted-foreground" />
               ))}
               <button className="btn-gold justify-center">Send RSVP</button>
             </form>
