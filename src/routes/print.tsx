@@ -19,7 +19,7 @@ export const Route = createFileRoute("/print")({
   component: PrintPage,
 });
 
-const d = (s: string, o: Intl.DateTimeFormatOptions) => new Date(s.length === 10 ? s + "T12:00:00" : s).toLocaleDateString("en-IN", o);
+const d = (s: string, o: Intl.DateTimeFormatOptions) => new Date(s.length === 10 ? s + "T12:00:00" : s).toLocaleDateString("en-IN", { ...o, timeZone: config.timeZone });
 
 function PrintPage() {
   return (
@@ -38,7 +38,7 @@ function PrintPage() {
           <Divider />
           <div>
             <p className="font-display text-[clamp(10px,2.4vw,15px)] tracking-[0.2em] text-ivory">{d(config.weddingDate, { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</p>
-            <p className="text-[clamp(10px,2.2vw,14px)] text-muted-foreground">{new Date(config.weddingDate).toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit" })}</p>
+            <p className="text-[clamp(10px,2.2vw,14px)] text-muted-foreground">{new Date(config.weddingDate).toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit", timeZone: config.timeZone })}</p>
             <p className="mt-1 font-display text-[clamp(10px,2.4vw,15px)] italic text-gold">{venue.name}</p>
             <p className="text-[clamp(9px,2vw,12px)] text-muted-foreground">{venue.address}</p>
           </div>

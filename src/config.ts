@@ -16,6 +16,7 @@ export type WeddingEvent = {
 
 export const config = {
   couple: { bride: "Aarohi", groom: "Vihaan", hashtag: "#VihaanWedsAarohi" },
+  timeZone: "Asia/Kolkata", // used to display times
   weddingDate: "2027-02-14T19:30:00+05:30",
   hero: { tagline: "Together with their families, joyfully invite you", venueName: "Umaid Palace, Jodhpur" },
   events: [

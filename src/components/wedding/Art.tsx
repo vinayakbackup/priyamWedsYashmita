@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /** Image with ornamental SVG fallback when the asset is missing. */
 export function Asset({ src, alt, className, fallback }: { src: string; alt: string; className?: string; fallback: React.ReactNode }) {
   const [failed, setFailed] = useState(!src);
+  const ref = useRef<HTMLImageElement>(null);
+  useEffect(() => { const i = ref.current; if (i && i.complete && i.naturalWidth === 0) setFailed(true); }, []);
   if (failed) return <>{fallback}</>;
-  return <img src={src} alt={alt} loading="lazy" decoding="async" className={className} onError={() => setFailed(true)} />;
+  return <img ref={ref} src={src} alt={alt} loading="lazy" decoding="async" className={className} onError={() => setFailed(true)} />;
 }
 
 export function ArchFallback({ className }: { className?: string }) {

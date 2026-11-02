@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 });
 
 const fmtDate = (d: string, o: Intl.DateTimeFormatOptions = { weekday: "long", day: "numeric", month: "long", year: "numeric" }) =>
-  new Date(d.length === 10 ? d + "T12:00:00" : d).toLocaleDateString("en-IN", o);
+  new Date(d.length === 10 ? d + "T12:00:00" : d).toLocaleDateString("en-IN", { ...o, timeZone: config.timeZone });
 
 function Index() {
   const [open, setOpen] = useState(false);
