@@ -1,6 +1,9 @@
 // ✏️ EDIT THIS FILE — every name, date, venue and link on the site comes from here.
 // All values below are realistic PLACEHOLDERS. Replace them with your own.
 
+import combinedArt from "@/assets/couple_arch_scroll.png.asset.json";
+import mandapArt from "@/assets/couple_arch.png.asset.json";
+
 export type WeddingEvent = {
   id: string;
   title: string;
@@ -47,6 +50,9 @@ export const config = {
   },
   // Drop transparent PNGs into /public/assets. Missing files fall back to an ornamental frame.
   assets: {
+    // Combined artwork (arch + scroll + tassels + couple). Set to "" to use the separate layers below.
+    combined: combinedArt.url,
+    printArt: mandapArt.url,
     hero: "/assets/hero.png",
     couple: "/assets/couple.png",
     arch: "/assets/arch.png",

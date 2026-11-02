@@ -33,7 +33,7 @@ function PrintPage() {
         <div className="pointer-events-none absolute inset-[4.5%] border border-gold/50" />
         <div className="relative flex h-full flex-col items-center justify-between py-[4%]">
           <p className="font-display text-[clamp(8px,1.8vw,11px)] uppercase italic tracking-[0.4em] text-ivory">{config.hero.tagline}</p>
-          <div className="w-[34%]"><InviteArt /></div>
+          <div className="w-[40%]"><InviteArt src={config.assets.printArt} /></div>
           <h1 className="font-script text-[clamp(30px,8vw,52px)] leading-none text-gold-grad">{couple.groom} &amp; {couple.bride}</h1>
           <Divider />
           <div>
