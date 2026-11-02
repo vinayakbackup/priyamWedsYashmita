@@ -43,12 +43,14 @@ function Index() {
           role="button" tabIndex={0} aria-label="Open the wedding invitation"
           onClick={openInvite}
           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openInvite(); } }}
-          className="argyle fixed inset-0 z-50 flex cursor-pointer flex-col items-center justify-between overflow-hidden px-6 py-10 transition-opacity duration-[800ms] focus:outline-none"
+          className="argyle fixed inset-0 z-50 flex cursor-pointer flex-col items-center justify-between overflow-hidden px-2 py-6 transition-opacity duration-[800ms] focus:outline-none"
           style={{ opacity: open ? 0 : 1 }}
         >
           <Particles className="pointer-events-none absolute inset-0 h-full w-full" />
-          <p className="rise relative font-display text-sm italic uppercase tracking-[0.5em] text-ivory sm:text-base">You're Invited</p>
-          <div className="rise relative w-[78vw] max-w-sm" style={{ animationDelay: ".4s" }}><InviteArt /></div>
+          <div className="relative flex flex-1 flex-col items-center justify-center">
+            <p className="rise mb-3 font-display text-sm italic uppercase tracking-[0.5em] text-ivory sm:text-base">You're Invited</p>
+            <div className="rise w-[94vw] max-w-[min(560px,64vh)]" style={{ animationDelay: ".4s" }}><InviteArt /></div>
+          </div>
           <div className="relative w-full text-center">
             <Swirls className="mx-auto w-full max-w-md" />
             <p className="pulse-soft mt-2 font-display text-xs uppercase tracking-[0.4em] text-gold">Click to Open</p>
