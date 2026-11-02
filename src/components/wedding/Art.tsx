@@ -82,7 +82,8 @@ export function Swirls({ className }: { className?: string }) {
   );
 }
 
-export function InviteArt({ className = "" }: { className?: string }) {
+export function InviteArt({ className = "", src = config.assets.combined }: { className?: string; src?: string }) {
+  if (src) return <img src={src} alt={`Illustration of ${config.couple.groom} and ${config.couple.bride} beneath a carved jharokha`} decoding="async" className={`mx-auto w-full object-contain drop-shadow-[0_0_40px_color-mix(in_oklab,var(--gold)_25%,transparent)] ${className}`} />;
   return (
     <div className={`relative mx-auto aspect-[300/400] w-full ${className}`}>
       <div className="absolute inset-x-0 bottom-0 top-[5%]">
