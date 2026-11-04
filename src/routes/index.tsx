@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { config, type WeddingEvent } from "@/config";
 import { Divider, InviteArt, Swirls } from "@/components/wedding/Art";
 import { Particles } from "@/components/wedding/Particles";
+import { RoyalPage } from "@/components/wedding/RoyalPage";
 
 const { couple } = config;
 const title = `${couple.groom} & ${couple.bride} — Wedding Invitation`;
@@ -105,18 +106,13 @@ function Main() {
   const msg = rsvp.message.replace("{groom}", couple.groom).replace("{bride}", couple.bride);
   return (
     <main className="mx-auto max-w-3xl px-5 pb-16" id="top">
-      <section className="flex min-h-[92vh] flex-col items-center justify-center pt-12 text-center">
-        <p className="rise font-serif text-lg italic text-muted-foreground">{config.hero.tagline}</p>
-        <h1 className="rise mt-6 font-script text-6xl leading-tight text-gold-grad sm:text-8xl" style={{ animationDelay: ".2s" }}>
-          {couple.groom}<span className="mx-3 block font-display text-2xl text-ivory sm:inline">&amp;</span>{couple.bride}
-        </h1>
-        <Divider className="rise mt-6" />
-        <p className="rise mt-6 font-display text-lg tracking-[0.2em] text-ivory sm:text-xl" style={{ animationDelay: ".4s" }}>{fmtDate(config.weddingDate)}</p>
-        <p className="rise mt-2 italic text-muted-foreground" style={{ animationDelay: ".5s" }}>{config.hero.venueName}</p>
-        <div className="rise w-full" style={{ animationDelay: ".7s" }}><Countdown /></div>
+      <RoyalPage />
+      <section className="pt-16 text-center">
+        <p className="font-display text-lg tracking-[0.2em] text-ivory sm:text-xl">{fmtDate(config.weddingDate)}</p>
+        <Countdown />
       </section>
 
-      <section className="py-16">
+      <section className="scroll-mt-6 py-16" id="details">
         <Reveal><H2>Celebrations</H2></Reveal>
         <ol className="relative space-y-10 border-l border-gold/40 pl-6 sm:mx-auto sm:max-w-xl">
           {config.events.map((e) => (
@@ -164,7 +160,7 @@ function Main() {
         </Reveal>
       </section>
 
-      <section className="py-16 text-center">
+      <section className="py-16 text-center" id="rsvp">
         <Reveal><H2>Kindly RSVP</H2></Reveal>
         <Reveal>
           <p className="text-muted-foreground">Please respond by <span className="text-ivory">{fmtDate(rsvp.deadline, { day: "numeric", month: "long", year: "numeric" })}</span></p>

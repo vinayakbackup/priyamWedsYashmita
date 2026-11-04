@@ -96,3 +96,19 @@
   .no-print { display: none !important; }
   .print-card { break-inside: avoid; page-break-inside: avoid; width: 148mm; height: 210mm; margin: 0 !important; box-shadow: none !important; }
 }
+
+/* Second page */
+.wax-seal { background: radial-gradient(circle at 35% 30%, color-mix(in oklab, var(--maroon) 70%, white), var(--maroon) 55%, color-mix(in oklab, var(--maroon) 60%, black)); box-shadow: 0 4px 12px color-mix(in oklab, black 60%, transparent), inset 0 0 0 4px color-mix(in oklab, var(--maroon) 80%, black); }
+.vinyl { background: repeating-radial-gradient(circle, color-mix(in oklab, var(--background) 90%, white) 0 1px, var(--background) 2px 5px); box-shadow: 0 0 0 3px var(--maroon), 0 0 30px color-mix(in oklab, var(--gold) 25%, transparent); }
+.vinyl::after { content: ""; position: absolute; inset: 0; border-radius: 9999px; background: conic-gradient(from 20deg, transparent 0 10%, color-mix(in oklab, white 25%, transparent) 14%, transparent 18% 60%, color-mix(in oklab, white 15%, transparent) 64%, transparent 68%); }
+.spin { animation: spin 4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.date-card { background: var(--maroon); outline: 2px dotted var(--gold); outline-offset: 5px; box-shadow: 0 0 0 10px color-mix(in oklab, var(--wood) 60%, black), 0 0 0 11px var(--gold); }
+.envelope-body { background: linear-gradient(160deg, transparent 49.5%, color-mix(in oklab, var(--maroon) 80%, black) 50%), linear-gradient(200deg, var(--maroon) 49.5%, color-mix(in oklab, var(--maroon) 85%, black) 50%); margin-top: 30%; }
+.envelope::before { content: ""; position: absolute; inset: 0 0 auto; height: 40%; background: var(--maroon); clip-path: polygon(0 100%, 50% 0, 100% 100%); }
+.envelope-letter { background: var(--ivory); z-index: 1; }
+.envelope-body, .envelope .wax-seal { z-index: 2; }
+.stage-floor { background: radial-gradient(ellipse at 50% 100%, color-mix(in oklab, var(--ivory) 18%, transparent), transparent 60%); }
+.sway-slow { transform-origin: 50% 100%; animation: sway-slow 5s ease-in-out infinite; }
+@keyframes sway-slow { 50% { transform: rotate(-2deg); } }
+@media (prefers-reduced-motion: reduce) { .spin, .sway-slow { animation: none; } }
