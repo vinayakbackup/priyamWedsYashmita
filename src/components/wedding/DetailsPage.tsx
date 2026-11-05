@@ -13,34 +13,64 @@ const gcal = (e: WeddingEvent) => {
   return `https://calendar.google.com/calendar/render?${q}`;
 };
 
+import archBanner from "@/assets/banner_arch.jpg";
+
 function DayBadge({ n }: { n: number }) {
   return (
-    <div className="day-badge mx-auto my-12 grid h-16 w-14 place-items-center font-display text-3xl text-bright-gold" aria-label={`Day ${n}`}>{n}</div>
+    <div className="day-badge mx-auto my-14 grid h-16 w-14 place-items-center font-display text-3xl font-bold text-bright-gold" aria-label={`Day ${n}`}>{n}</div>
   );
 }
 
-function EventBlock({ e, i }: { e: WeddingEvent; i: number }) {
-  const flip = i % 2 === 1;
-  return (
-    <article className="reveal-soft mt-8">
-      <div className="event-banner mx-auto flex max-w-md items-center justify-center gap-4 px-6 py-3">
-        <span className="text-2xl" aria-hidden>{e.icon}</span>
-        <h3 className="font-script text-5xl leading-none text-gold-grad">{e.title}</h3>
-        <span className="text-2xl" aria-hidden>{e.icon}</span>
+function Banner({ e }: { e: WeddingEvent }) {
+  const v = e.banner ?? "royal";
+  if (v === "arch")
+    return (
+      <div className="relative mx-auto max-w-lg overflow-hidden">
+        <img src={archBanner} alt="" width={1536} height={672} loading="lazy" className="w-full" />
+        <div className="absolute inset-0 flex flex-col items-center justify-end pb-[9%]">
+          <h3 className="font-script text-4xl leading-none text-wood sm:text-6xl">{e.title}</h3>
+          {e.subtitle && <span className="font-script text-2xl text-wood sm:text-4xl">{e.subtitle}</span>}
+        </div>
       </div>
-      <div className={`mt-8 grid items-center gap-6 sm:grid-cols-[1fr_auto] ${flip ? "sm:[direction:rtl]" : ""}`}>
-        <div className="[direction:ltr]">
-          <ul className="event-line space-y-6 pl-8 text-left">
-            <li><span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{fmt(e.date, { weekday: "long", day: "numeric", month: "long" })}</span><span className="block font-serif text-lg text-ivory">{e.time} onwards</span></li>
-            <li><span className="block font-serif text-lg text-ivory">{e.venue}</span><span className="text-sm text-muted-foreground">{e.address}</span></li>
-            <li><span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Dress code</span><span className="block font-serif text-lg text-ivory">{e.dressCode}</span></li>
+    );
+  if (v === "royal")
+    return (
+      <div className="banner-royal mx-auto max-w-lg px-6 py-8">
+        <div className="text-2xl text-gold" aria-hidden>❦</div>
+        <h3 className="font-display text-5xl font-bold uppercase tracking-wider text-gold-grad sm:text-6xl">{e.title}</h3>
+        <div className="rotate-180 text-2xl text-gold" aria-hidden>❦</div>
+      </div>
+    );
+  return (
+    <div className={`banner-${v} mx-auto flex max-w-lg items-center justify-center gap-4 px-6 py-3`}>
+      {v !== "night" && <span className="text-3xl" aria-hidden>☂</span>}
+      <div className="leading-none">
+        <h3 className="inline font-script text-5xl sm:text-6xl">{e.title}</h3>
+        {e.subtitle && <span className={`font-script text-3xl ${v === "night" ? "ml-2 inline" : "block"}`}>{e.subtitle}</span>}
+      </div>
+      {v !== "night" && <span className="text-3xl" aria-hidden>☂</span>}
+    </div>
+  );
+}
+
+function EventBlock({ e }: { e: WeddingEvent }) {
+  return (
+    <article className="mt-10">
+      <Banner e={e} />
+      <div className={`mx-auto mt-8 grid max-w-lg items-center gap-4 text-left ${e.art ? "grid-cols-[1.1fr_1fr]" : ""}`}>
+        <div>
+          {e.description && <p className="font-serif text-sm leading-snug text-ivory sm:text-base">{e.description}</p>}
+          <ul className="event-line mt-6 space-y-7 pl-6 font-serif text-sm text-ivory">
+            <li>{e.time} onwards<span className="block text-xs text-muted-foreground">{fmt(e.date, { weekday: "short", day: "numeric", month: "short" })}</span></li>
+            <li>{e.venue}<span className="block text-xs text-muted-foreground">{e.address}</span></li>
+            <li>{e.dressCode}<span className="block text-xs text-muted-foreground">Dress code</span></li>
           </ul>
-          <div className="mt-6 flex flex-wrap gap-2 pl-8">
-            <a className="btn-outline-gold" href={gcal(e)} target="_blank" rel="noreferrer">Add to calendar</a>
-            <a className="btn-outline-gold" href={e.mapUrl} target="_blank" rel="noreferrer">Map</a>
+          <div className="mt-5 flex flex-wrap gap-3 pl-6 text-xs">
+            <a className="text-gold underline-offset-4 hover:underline" href={gcal(e)} target="_blank" rel="noreferrer">Add to calendar</a>
+            <a className="text-gold underline-offset-4 hover:underline" href={e.mapUrl} target="_blank" rel="noreferrer">View map</a>
           </div>
         </div>
-        <div className="event-medallion mx-auto hidden h-32 w-32 place-items-center rounded-full text-5xl sm:grid" aria-hidden>{e.icon}</div>
+        {e.art && <img src={e.art} alt={`${couple.groom} and ${couple.bride} at the ${e.title}`} width={1024} height={1024} loading="lazy" className="w-full" />}
       </div>
     </article>
   );
@@ -65,7 +95,7 @@ export function DetailsPage() {
       {days.map((d, di) => (
         <div key={d}>
           <DayBadge n={di + 1} />
-          {config.events.filter((e) => e.date === d).map((e) => <EventBlock key={e.id} e={e} i={config.events.indexOf(e)} />)}
+          {config.events.filter((e) => e.date === d).map((e) => <EventBlock key={e.id} e={e} />)}
         </div>
       ))}
 

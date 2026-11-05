@@ -122,3 +122,11 @@
 .event-line li::before { content: ""; position: absolute; left: -27px; top: 6px; width: 12px; height: 12px; border-radius: 9999px; background: var(--gold); box-shadow: 0 0 10px color-mix(in oklab, var(--gold) 50%, transparent); }
 .event-medallion { border: 1px solid var(--gold); background: radial-gradient(circle, color-mix(in oklab, var(--maroon) 60%, black), var(--background)); box-shadow: 0 0 0 6px var(--background), 0 0 0 7px var(--gold-line); }
 .photo-frame { background: var(--ivory); box-shadow: 0 20px 40px color-mix(in oklab, black 70%, transparent); }
+:root { --haldi: oklch(0.9 0.09 88); --sage: oklch(0.72 0.06 120); --night: oklch(0.25 0.04 260); }
+.day-badge { border: 2px solid var(--gold); border-radius: 18px / 26px; box-shadow: 0 0 0 4px var(--background), 0 0 0 5px var(--gold); }
+.banner-cream { background: var(--haldi); color: var(--maroon); border: 2px solid color-mix(in oklab, var(--haldi) 70%, var(--gold)); }
+.banner-green { background: color-mix(in oklab, var(--sage) 45%, var(--ivory)); color: color-mix(in oklab, var(--sage) 40%, black); border: 2px solid var(--sage); }
+.banner-night { background: var(--night); color: var(--ivory); }
+.banner-royal { background: radial-gradient(ellipse, color-mix(in oklab, var(--maroon) 90%, white), var(--maroon) 60%, color-mix(in oklab, var(--maroon) 70%, black)); border: 1px solid var(--gold); outline: 1px solid var(--gold-line); outline-offset: -8px; }
+.event-line li::before { background: var(--sage); width: 14px; height: 8px; top: 5px; left: -24px; box-shadow: none; }
+.event-line::before { left: 6px; background: var(--ivory); }
