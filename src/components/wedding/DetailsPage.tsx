@@ -48,7 +48,7 @@ function EventBlock({ e, i }: { e: WeddingEvent; i: number }) {
 
 export function DetailsPage() {
   const days = [...new Set(config.events.map((e) => e.date))];
-  const last = config.events[config.events.length - 1];
+  const last = config.events[config.events.length - 1]!;
   return (
     <section className="scroll-mt-6 py-16 text-center" id="details">
       <svg viewBox="0 0 40 50" className="mx-auto h-12 w-10" fill="none" stroke="var(--gold)" strokeWidth="1.5" aria-hidden>
