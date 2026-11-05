@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { config, type WeddingEvent } from "@/config";
+import { config } from "@/config";
 import { Divider, InviteArt, Swirls } from "@/components/wedding/Art";
 import { Particles } from "@/components/wedding/Particles";
 import { RoyalPage } from "@/components/wedding/RoyalPage";
+import { DetailsPage } from "@/components/wedding/DetailsPage";
 
 const { couple } = config;
 const title = `${couple.groom} & ${couple.bride} — Wedding Invitation`;
@@ -94,12 +95,6 @@ function Countdown() {
   );
 }
 
-const gcal = (e: WeddingEvent) => {
-  const s = new Date(e.start); const en = new Date(s.getTime() + 3 * 36e5);
-  const f = (d: Date) => d.toISOString().replace(/[-:]|\.\d{3}/g, "");
-  const q = new URLSearchParams({ action: "TEMPLATE", text: `${e.title} — ${couple.groom} & ${couple.bride}`, dates: `${f(s)}/${f(en)}`, location: `${e.venue}, ${e.address}`, details: `Dress code: ${e.dressCode}` });
-  return `https://calendar.google.com/calendar/render?${q}`;
-};
 
 function Main() {
   const { families, venue, rsvp } = config;
@@ -112,31 +107,7 @@ function Main() {
         <Countdown />
       </section>
 
-      <section className="scroll-mt-6 py-16" id="details">
-        <Reveal><H2>Celebrations</H2></Reveal>
-        <ol className="relative space-y-10 border-l border-gold/40 pl-6 sm:mx-auto sm:max-w-xl">
-          {config.events.map((e) => (
-            <li key={e.id}>
-              <Reveal>
-                <span className="absolute -left-[9px] mt-6 h-4 w-4 rotate-45 border border-bright-gold bg-maroon" aria-hidden />
-                <article className="gold-frame rounded-xl p-6">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="font-display text-xl italic text-gold">{e.icon} {e.title}</h3>
-                    <span className="text-sm text-muted-foreground">{e.time}</span>
-                  </div>
-                  <p className="mt-1 font-display text-sm tracking-widest text-ivory">{fmtDate(e.date)}</p>
-                  <p className="mt-3">{e.venue}<span className="block text-sm text-muted-foreground">{e.address}</span></p>
-                  <p className="mt-2 text-sm"><span className="text-gold">Dress code · </span>{e.dressCode}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    <a className="btn-outline-gold" href={gcal(e)} target="_blank" rel="noreferrer">Add to calendar</a>
-                    <a className="btn-outline-gold" href={e.mapUrl} target="_blank" rel="noreferrer">Map</a>
-                  </div>
-                </article>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
-      </section>
+      <DetailsPage />
 
       <section className="py-16">
         <Reveal><H2>With the Blessings of</H2></Reveal>

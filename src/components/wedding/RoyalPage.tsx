@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import { config } from "@/config";
 import musicianArt from "@/assets/musician_banner.png.asset.json";
 import attendantLeft from "@/assets/attendant_left.png.asset.json";
-import attendantRight from "@/assets/attendant_right.png.asset.json";
 
 const { couple } = config;
 const initials = `${couple.groom[0]}${couple.bride[0]}`;
@@ -80,13 +79,13 @@ export function RoyalPage() {
 
       <div className="mx-auto mt-12 grid max-w-xl grid-cols-[1.1fr_1fr] items-center gap-3">
         <img src={config.assets.printArt} alt={`${couple.groom} and ${couple.bride} beneath a mandap`} loading="lazy" className="w-full" />
-        <p className="text-left font-serif text-xl leading-snug text-ivory sm:text-2xl">
-          <span className="float-left mr-1 font-script text-6xl leading-none text-gold-grad">W</span>e can't wait to celebrate with you!
+        <p className="text-left font-script text-4xl leading-tight text-gold-grad sm:text-5xl">
+          We can't wait to celebrate with you!
         </p>
       </div>
 
       <div className="stage-floor relative mx-auto mt-10 flex max-w-xl items-end justify-center gap-1 pb-6">
-        <img src={attendantLeft.url} alt="" loading="lazy" className="sway-slow w-[26%]" />
+        <div className="w-[26%]"><img src={attendantLeft.url} alt="" loading="lazy" className="sway-slow w-full" /></div>
         <a href={rsvpHref} target={config.rsvp.mode === "whatsapp" ? "_blank" : undefined} rel="noreferrer" className="envelope group relative mb-2 block w-[46%]" aria-label="Kindly RSVP here">
           <div className="envelope-letter absolute inset-x-[8%] -top-[6%] h-[50%] rounded-sm px-2 pt-3 transition-transform duration-500 group-hover:-translate-y-4">
             <p className="whitespace-nowrap font-serif text-xs text-maroon sm:text-sm"><span className="font-script text-3xl">K</span>indly RSVP here</p>
@@ -94,7 +93,7 @@ export function RoyalPage() {
           <div className="envelope-body relative aspect-[4/3.6] rounded-b-md" />
           <Seal className="absolute left-1/2 top-[55%] h-14 w-14 -translate-x-1/2" />
         </a>
-        <img src={attendantRight.url} alt="" loading="lazy" className="sway-slow w-[26%]" style={{ animationDelay: "-2s" }} />
+        <div className="w-[26%] -scale-x-100"><img src={attendantLeft.url} alt="" loading="lazy" className="sway-slow w-full" style={{ animationDelay: "-2s" }} /></div>
       </div>
     </section>
   );

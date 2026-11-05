@@ -112,3 +112,13 @@
 .sway-slow { transform-origin: 50% 100%; animation: sway-slow 5s ease-in-out infinite; }
 @keyframes sway-slow { 50% { transform: rotate(-2deg); } }
 @media (prefers-reduced-motion: reduce) { .spin, .sway-slow { animation: none; } }
+
+/* Details page */
+.day-badge { border: 2px solid var(--gold); border-radius: 40% 40% 40% 40% / 30%; box-shadow: 0 0 0 4px var(--background), 0 0 0 5px var(--gold-line); }
+.event-banner { background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--maroon) 80%, black) 15% 85%, transparent); border-block: 1px solid var(--gold-line); }
+.event-line { position: relative; }
+.event-line::before { content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; width: 1px; background: var(--gold-line); }
+.event-line li { position: relative; }
+.event-line li::before { content: ""; position: absolute; left: -27px; top: 6px; width: 12px; height: 12px; border-radius: 9999px; background: var(--gold); box-shadow: 0 0 10px color-mix(in oklab, var(--gold) 50%, transparent); }
+.event-medallion { border: 1px solid var(--gold); background: radial-gradient(circle, color-mix(in oklab, var(--maroon) 60%, black), var(--background)); box-shadow: 0 0 0 6px var(--background), 0 0 0 7px var(--gold-line); }
+.photo-frame { background: var(--ivory); box-shadow: 0 20px 40px color-mix(in oklab, black 70%, transparent); }
