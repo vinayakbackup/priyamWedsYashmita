@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { config } from "@/config";
 import { Divider, InviteArt } from "@/components/wedding/Art";
 
-const { couple, venue, rsvp } = config;
+const { couple, venue } = config;
 const title = `Printable Card — ${couple.groom} & ${couple.bride}`;
 
 export const Route = createFileRoute("/print")({
@@ -48,7 +48,6 @@ function PrintPage() {
             ))}
           </ul>
           <p className="text-[clamp(8px,1.9vw,12px)] text-ivory">
-            RSVP by {d(rsvp.deadline, { day: "numeric", month: "long" })} · WhatsApp +{rsvp.whatsappNumber}
             {couple.hashtag && <span className="block font-display text-gold">{couple.hashtag}</span>}
           </p>
         </div>

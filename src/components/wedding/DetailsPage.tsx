@@ -45,8 +45,8 @@ function Banner({ e }: { e: WeddingEvent }) {
     <div className={`banner-${v} mx-auto flex max-w-lg items-center justify-center gap-4 px-6 py-3`}>
       {v !== "night" && <span className="text-3xl" aria-hidden>☂</span>}
       <div className="leading-none">
-        <h3 className="inline font-script text-5xl sm:text-6xl">{e.title}</h3>
-        {e.subtitle && <span className={`font-script text-3xl ${v === "night" ? "ml-2 inline" : "block"}`}>{e.subtitle}</span>}
+        <h3 className="inline font-script text-4xl sm:text-6xl">{e.title}</h3>
+        {e.subtitle && <span className={`font-script text-2xl sm:text-3xl ${v === "night" ? "ml-1 inline" : "block"}`}>{e.subtitle}</span>}
       </div>
       {v !== "night" && <span className="text-3xl" aria-hidden>☂</span>}
     </div>
@@ -62,12 +62,9 @@ function EventBlock({ e }: { e: WeddingEvent }) {
           {e.description && <p className="font-serif text-sm leading-snug text-ivory sm:text-base">{e.description}</p>}
           <ul className="event-line mt-6 space-y-7 pl-6 font-serif text-sm text-ivory">
             <li>{e.time} onwards<span className="block text-xs text-muted-foreground">{fmt(e.date, { weekday: "short", day: "numeric", month: "short" })}</span></li>
-            <li>{e.venue}<span className="block text-xs text-muted-foreground">{e.address}</span></li>
-            <li>{e.dressCode}<span className="block text-xs text-muted-foreground">Dress code</span></li>
           </ul>
           <div className="mt-5 flex flex-wrap gap-3 pl-6 text-xs">
             <a className="text-gold underline-offset-4 hover:underline" href={gcal(e)} target="_blank" rel="noreferrer">Add to calendar</a>
-            <a className="text-gold underline-offset-4 hover:underline" href={e.mapUrl} target="_blank" rel="noreferrer">View map</a>
           </div>
         </div>
         {e.art && <img src={e.art} alt={`${couple.groom} and ${couple.bride} at the ${e.title}`} width={1024} height={1024} loading="lazy" className="w-full" />}

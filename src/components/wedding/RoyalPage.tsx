@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { config } from "@/config";
 import musicianArt from "@/assets/musician_banner.png.asset.json";
-import attendantLeft from "@/assets/attendant_left.png.asset.json";
+import { Divider } from "@/components/wedding/Art";
 
 const { couple } = config;
 const initials = `${couple.groom[0]}${couple.bride[0]}`;
@@ -54,8 +54,6 @@ function DateCard() {
 }
 
 export function RoyalPage() {
-  const msg = config.rsvp.message.replace("{groom}", couple.groom).replace("{bride}", couple.bride);
-  const rsvpHref = config.rsvp.mode === "whatsapp" ? `https://wa.me/${config.rsvp.whatsappNumber}?text=${encodeURIComponent(msg)}` : "#rsvp";
   return (
     <section className="relative overflow-hidden pt-10 text-center">
       <p className="rise font-serif text-sm tracking-[0.25em] text-muted-foreground">We cordially invite you to the wedding of</p>
@@ -83,18 +81,8 @@ export function RoyalPage() {
           We can't wait to celebrate with you!
         </p>
       </div>
-
-      <div className="stage-floor relative mx-auto mt-10 flex max-w-xl items-end justify-center gap-1 pb-6">
-        <div className="w-[26%]"><img src={attendantLeft.url} alt="" loading="lazy" className="sway-slow w-full" /></div>
-        <a href={rsvpHref} target={config.rsvp.mode === "whatsapp" ? "_blank" : undefined} rel="noreferrer" className="envelope group relative mb-2 block w-[46%]" aria-label="Kindly RSVP here">
-          <div className="envelope-letter absolute inset-x-[8%] -top-[6%] h-[50%] rounded-sm px-2 pt-3 transition-transform duration-500 group-hover:-translate-y-4">
-            <p className="whitespace-nowrap font-serif text-xs text-maroon sm:text-sm"><span className="font-script text-3xl">K</span>indly RSVP here</p>
-          </div>
-          <div className="envelope-body relative aspect-[4/3.6] rounded-b-md" />
-          <Seal className="absolute left-1/2 top-[55%] h-14 w-14 -translate-x-1/2" />
-        </a>
-        <div className="w-[26%] -scale-x-100"><img src={attendantLeft.url} alt="" loading="lazy" className="sway-slow w-full" style={{ animationDelay: "-2s" }} /></div>
-      </div>
+      <Divider className="mt-10" />
+      <p className="mt-6 font-script text-4xl text-gold-grad">{couple.groom} & {couple.bride}</p>
     </section>
   );
 }

@@ -39,7 +39,7 @@ function Index() {
   };
   return (
     <div className="argyle min-h-screen">
-      {config.music?.src && <audio ref={audio} src={config.music.src} loop preload="none" />}
+      {config.music?.src && <audio id="bg-music" ref={audio} src={config.music.src} loop preload="auto" />}
       {!gone && (
         <div
           role="button" tabIndex={0} aria-label="Open the wedding invitation"
@@ -97,8 +97,7 @@ function Countdown() {
 
 
 function Main() {
-  const { families, venue, rsvp } = config;
-  const msg = rsvp.message.replace("{groom}", couple.groom).replace("{bride}", couple.bride);
+  const { families, venue } = config;
   return (
     <main className="mx-auto max-w-3xl px-5 pb-16" id="top">
       <RoyalPage />
@@ -131,22 +130,7 @@ function Main() {
         </Reveal>
       </section>
 
-      <section className="py-16 text-center" id="rsvp">
-        <Reveal><H2>Kindly RSVP</H2></Reveal>
-        <Reveal>
-          <p className="text-muted-foreground">Please respond by <span className="text-ivory">{fmtDate(rsvp.deadline, { day: "numeric", month: "long", year: "numeric" })}</span></p>
-          {rsvp.mode === "whatsapp" ? (
-            <a className="btn-gold mt-6" href={`https://wa.me/${rsvp.whatsappNumber}?text=${encodeURIComponent(msg)}`} target="_blank" rel="noreferrer">RSVP on WhatsApp</a>
-          ) : (
-            <form action={rsvp.formEndpoint} method="POST" className="mx-auto mt-6 grid max-w-sm gap-3 text-left">
-              {["name", "guests", "message"].map((n) => (
-                <input key={n} name={n} required={n === "name"} placeholder={n.charAt(0).toUpperCase() + n.slice(1)} className="rounded-md border bg-transparent px-4 py-3 text-ivory placeholder:text-muted-foreground" />
-              ))}
-              <button className="btn-gold justify-center">Send RSVP</button>
-            </form>
-          )}
-        </Reveal>
-      </section>
+
 
       <footer className="pt-10 text-center">
         <Divider />
