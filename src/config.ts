@@ -46,7 +46,7 @@ export const config = {
     lat: 22.7041,
     lng: 75.8577,
     mapsEmbedUrl: "https://maps.google.com/maps?q=22.7041,75.8577&z=15&output=embed",
-    mapsLinkUrl: "https://www.google.com/maps/dir/?api=1&destination=22.7041,75.8577",
+    mapsLinkUrl: "https://maps.app.goo.gl/YAkhNBkWEapZbgyJ7?g_st=aw",
   },
 
   // Drop transparent PNGs into /public/assets. Missing files fall back to an ornamental frame.
