@@ -49,11 +49,11 @@ function Index() {
           style={{ opacity: open ? 0 : 1 }}
         >
           <Particles className="pointer-events-none absolute inset-0 h-full w-full" />
-          <div className="relative flex flex-1 flex-col items-center justify-center">
-            <p className="rise mb-3 font-display text-sm italic uppercase tracking-[0.5em] text-ivory sm:text-base">You're Invited</p>
-            <div className="rise flex w-[94vw] max-w-[560px] justify-center" style={{ animationDelay: ".4s" }}><InviteArt className="max-h-[60dvh] w-auto max-w-full" /></div>
+          <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center">
+            <p className="rise mb-3 shrink-0 font-display text-sm italic uppercase tracking-[0.5em] text-ivory sm:text-base">You're Invited</p>
+            <div className="rise flex shrink-0 justify-center" style={{ animationDelay: ".4s" }}><InviteArt style={{ width: "auto", height: "auto", maxWidth: "min(94vw, 560px)", maxHeight: "60dvh" }} /></div>
           </div>
-          <div className="relative w-full text-center">
+          <div className="relative w-full shrink-0 text-center">
             <Swirls className="mx-auto w-full max-w-md" />
             <p className="pulse-soft mt-2 font-display text-xs uppercase tracking-[0.4em] text-gold">Click to Open</p>
           </div>
