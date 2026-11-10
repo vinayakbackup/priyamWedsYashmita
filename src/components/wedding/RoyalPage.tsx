@@ -1,7 +1,7 @@
-import { useRef, useState } from "react";
 import { config } from "@/config";
 import musicianArt from "@/assets/musician_banner.png.asset.json";
 import { Divider } from "@/components/wedding/Art";
+import standingArt from "@/assets/couple_standing.png";
 
 const { couple } = config;
 const initials = `${couple.groom[0]}${couple.bride[0]}`;
@@ -11,25 +11,6 @@ function Seal({ className = "" }: { className?: string }) {
     <div className={`wax-seal grid place-items-center rounded-full font-script text-2xl text-ivory ${className}`} aria-hidden>
       {initials}
     </div>
-  );
-}
-
-function Vinyl() {
-  const [playing, setPlaying] = useState(false);
-  const audio = useRef<HTMLAudioElement>(null);
-  const toggle = () => {
-    const a = audio.current;
-    if (a) { if (playing) a.pause(); else a.play().catch(() => {}); }
-    setPlaying((p) => !p);
-  };
-  return (
-    <button type="button" onClick={toggle} aria-pressed={playing} aria-label={playing ? "Pause music" : "Play music"} className="group flex flex-col items-center">
-      {config.music?.src && <audio ref={audio} src={config.music.src} loop preload="none" />}
-      <div className={`vinyl relative aspect-square w-32 rounded-full sm:w-40 ${playing ? "spin" : ""}`}>
-        <div className="absolute inset-[34%] grid place-items-center rounded-full border border-gold bg-wood font-display text-bright-gold">♪</div>
-      </div>
-      <span className="mt-2 font-serif text-xs tracking-[0.3em] text-ivory">{playing ? "Tap to pause" : "Tap to play"}</span>
-    </button>
   );
 }
 
@@ -66,9 +47,8 @@ export function RoyalPage() {
       </div>
 
       <div className="mx-auto mt-10 grid max-w-xl grid-cols-2 items-center gap-5 px-3">
-        <div className="flex flex-col items-center gap-8">
-          <div className="rise" style={{ animationDelay: ".6s" }}><Vinyl /></div>
-          <a href="#details" className="rise block w-full transition-transform hover:scale-105" style={{ animationDelay: ".8s" }} aria-label="For wedding details, click here">
+        <div className="flex flex-col items-center justify-center">
+          <a href="#details" className="rise block w-full transition-transform hover:scale-105" style={{ animationDelay: ".6s" }} aria-label="For wedding details, click here">
             <img src={musicianArt.url} alt="Shehnai player beside a 'For Wedding Details — Click Here' sign" loading="lazy" className="w-full" />
           </a>
         </div>
@@ -76,7 +56,7 @@ export function RoyalPage() {
       </div>
 
       <div className="mx-auto mt-12 grid max-w-xl grid-cols-[1.1fr_1fr] items-center gap-3">
-        <img src={config.assets.printArt} alt={`${couple.groom} and ${couple.bride} beneath a mandap`} loading="lazy" className="w-full" />
+        <img src={standingArt} alt={`${couple.groom} and ${couple.bride} in their wedding attire`} loading="lazy" className="w-full" />
         <p className="text-left font-script text-4xl leading-tight text-gold-grad sm:text-5xl">
           We can't wait to celebrate with you!
         </p>

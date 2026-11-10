@@ -6,14 +6,8 @@ const initials = `${couple.groom[0]}${couple.bride[0]}`;
 const fmt = (d: string, o: Intl.DateTimeFormatOptions) =>
   new Date(d.length === 10 ? d + "T12:00:00" : d).toLocaleDateString("en-IN", { ...o, timeZone: config.timeZone });
 
-const gcal = (e: WeddingEvent) => {
-  const s = new Date(e.start); const en = new Date(s.getTime() + 3 * 36e5);
-  const f = (d: Date) => d.toISOString().replace(/[-:]|\.\d{3}/g, "");
-  const q = new URLSearchParams({ action: "TEMPLATE", text: `${e.title} — ${couple.groom} & ${couple.bride}`, dates: `${f(s)}/${f(en)}`, location: `${e.venue}, ${e.address}`, details: `Dress code: ${e.dressCode}` });
-  return `https://calendar.google.com/calendar/render?${q}`;
-};
-
 import archBanner from "@/assets/banner_arch.jpg";
+import seatedArt from "@/assets/couple_seated.png";
 
 function DayBadge({ n }: { n: number }) {
   return (
@@ -35,10 +29,19 @@ function Banner({ e }: { e: WeddingEvent }) {
     );
   if (v === "royal")
     return (
-      <div className="banner-royal mx-auto max-w-lg px-6 py-8">
-        <div className="text-2xl text-gold" aria-hidden>❦</div>
-        <h3 className="font-display text-5xl font-bold uppercase tracking-wider text-gold-grad sm:text-6xl">{e.title}</h3>
-        <div className="rotate-180 text-2xl text-gold" aria-hidden>❦</div>
+      <div className="banner-royal relative mx-auto max-w-lg px-8 py-9">
+        <span className="absolute left-2 top-1 text-2xl text-gold" aria-hidden>❧</span>
+        <span className="absolute right-2 top-1 -scale-x-100 text-2xl text-gold" aria-hidden>❧</span>
+        <span className="absolute bottom-1 left-2 -scale-y-100 text-2xl text-gold" aria-hidden>❧</span>
+        <span className="absolute bottom-1 right-2 -scale-x-100 -scale-y-100 text-2xl text-gold" aria-hidden>❧</span>
+        <p className="font-display text-[10px] uppercase tracking-[0.45em] text-ivory/80">An evening of dinner & dancing</p>
+        <div className="mx-auto my-3 flex items-center justify-center gap-3 text-gold" aria-hidden>
+          <span className="h-px w-16 bg-gold-line" />✦<span className="h-px w-16 bg-gold-line" />
+        </div>
+        <h3 className="royal-title font-display text-4xl font-bold uppercase tracking-[0.1em] text-gold-grad sm:text-5xl">{e.title}</h3>
+        <div className="mx-auto mt-3 flex items-center justify-center gap-3 text-gold" aria-hidden>
+          <span className="h-px w-16 bg-gold-line" />❦<span className="h-px w-16 bg-gold-line" />
+        </div>
       </div>
     );
   return (
@@ -63,9 +66,7 @@ function EventBlock({ e }: { e: WeddingEvent }) {
           <ul className="event-line mt-6 space-y-7 pl-6 font-serif text-sm text-ivory">
             <li>{e.time} onwards<span className="block text-xs text-muted-foreground">{fmt(e.date, { weekday: "short", day: "numeric", month: "short" })}</span></li>
           </ul>
-          <div className="mt-5 flex flex-wrap gap-3 pl-6 text-xs">
-            <a className="text-gold underline-offset-4 hover:underline" href={gcal(e)} target="_blank" rel="noreferrer">Add to calendar</a>
-          </div>
+
         </div>
         {e.art && <img src={e.art} alt={`${couple.groom} and ${couple.bride} at the ${e.title}`} width={1024} height={1024} loading="lazy" className="w-full" />}
       </div>
@@ -85,7 +86,7 @@ export function DetailsPage() {
       <p className="mx-auto mt-3 max-w-xs font-serif text-sm tracking-[0.2em] text-muted-foreground">Everything you need to celebrate with us — from ceremonies and timings to the venue and festivities.</p>
 
       <div className="relative mx-auto mt-10 w-64 -rotate-3 sm:w-72">
-        <div className="photo-frame p-3"><img src={config.assets.printArt} alt={`${couple.groom} and ${couple.bride}`} loading="lazy" className="w-full bg-background" /></div>
+        <div className="photo-frame p-3"><img src={seatedArt} alt={`${couple.groom} and ${couple.bride}`} loading="lazy" className="w-full bg-background" /></div>
         <div className="wax-seal absolute -right-6 -top-6 grid h-16 w-16 place-items-center rounded-full font-script text-2xl text-ivory" aria-hidden>{initials}</div>
       </div>
 
