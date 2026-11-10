@@ -37,8 +37,8 @@ export const config = {
     { id: "reception", title: "Reception", date: "2026-12-03", time: "7:30 PM", start: "2026-12-03T19:30:00+05:30", venue: "The Cherry Blossom", address: "Indore, Madhya Pradesh", dressCode: "", mapUrl: "https://maps.google.com/?q=Cherry+Blossom+Indore", icon: "✨", subtitle: "", banner: "royal", description: "Raise a toast with us as we begin our new journey together." },
 ] as WeddingEvent[],
   families: {
-    bride: { father: "Mr. Rajendra Singh Rathore", mother: "Mrs. Meenakshi Rathore", extra: "Granddaughter of Late Thakur Bhawani Singh" },
-    groom: { father: "Mr. Arvind Malhotra", mother: "Mrs. Sunita Malhotra", extra: "Grandson of Sh. Kailash Malhotra" },
+    bride: { father: "Manish Mittal", mother: "Rachna Mittal", extra: "" },
+    groom: { father: "Dilip Goyal", mother: "Rekha Goyal", extra: "" },
   },
   venue: {
     name: "The Cherry Blossom",

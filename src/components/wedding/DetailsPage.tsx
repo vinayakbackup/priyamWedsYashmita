@@ -29,18 +29,22 @@ function Banner({ e }: { e: WeddingEvent }) {
     );
   if (v === "royal")
     return (
-      <div className="banner-royal relative mx-auto max-w-lg px-8 py-9">
-        <span className="absolute left-2 top-1 text-2xl text-gold" aria-hidden>❧</span>
-        <span className="absolute right-2 top-1 -scale-x-100 text-2xl text-gold" aria-hidden>❧</span>
-        <span className="absolute bottom-1 left-2 -scale-y-100 text-2xl text-gold" aria-hidden>❧</span>
-        <span className="absolute bottom-1 right-2 -scale-x-100 -scale-y-100 text-2xl text-gold" aria-hidden>❧</span>
-        <p className="font-display text-[10px] uppercase tracking-[0.45em] text-ivory/80">An evening of dinner & dancing</p>
-        <div className="mx-auto my-3 flex items-center justify-center gap-3 text-gold" aria-hidden>
-          <span className="h-px w-16 bg-gold-line" />✦<span className="h-px w-16 bg-gold-line" />
-        </div>
-        <h3 className="royal-title font-display text-4xl font-bold uppercase tracking-[0.1em] text-gold-grad sm:text-5xl">{e.title}</h3>
-        <div className="mx-auto mt-3 flex items-center justify-center gap-3 text-gold" aria-hidden>
-          <span className="h-px w-16 bg-gold-line" />❦<span className="h-px w-16 bg-gold-line" />
+      <div className="banner-royal relative mx-auto max-w-lg overflow-hidden px-6 py-8 sm:px-10">
+        <span className="absolute left-3 top-2 z-10 text-3xl text-gold" aria-hidden>❧</span>
+        <span className="absolute right-3 top-2 z-10 -scale-x-100 text-3xl text-gold" aria-hidden>❧</span>
+        <span className="absolute bottom-2 left-3 z-10 -scale-y-100 text-3xl text-gold" aria-hidden>❧</span>
+        <span className="absolute bottom-2 right-3 z-10 -scale-x-100 -scale-y-100 text-3xl text-gold" aria-hidden>❧</span>
+        <div className="relative z-10">
+          <div className="royal-crest mx-auto mb-3 grid h-9 w-9 place-items-center rounded-full text-sm text-bright-gold" aria-hidden>✦</div>
+          <p className="font-display text-[9px] uppercase tracking-[0.35em] text-ivory/80 sm:text-[10px]">An evening of dinner & dancing</p>
+          <div className="mx-auto my-3 flex items-center justify-center gap-3 text-gold" aria-hidden>
+            <span className="royal-rule h-px w-14" />❧<span className="royal-rule h-px w-14" />
+          </div>
+          <h3 className="royal-title font-script text-6xl leading-none text-gold-grad sm:text-7xl">{e.title}</h3>
+          <p className="mt-4 font-display text-[9px] uppercase tracking-[0.3em] text-ivory/70">Dinner · Music · Celebrations</p>
+          <div className="mx-auto mt-4 flex items-center justify-center gap-3 text-gold" aria-hidden>
+            <span className="royal-rule h-px w-12" />❦<span className="royal-rule h-px w-12" />
+          </div>
         </div>
       </div>
     );
