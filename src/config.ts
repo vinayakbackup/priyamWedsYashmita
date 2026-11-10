@@ -45,8 +45,8 @@ export const config = {
     address: "Indore, Madhya Pradesh",
     lat: 22.7041,
     lng: 75.8577,
-    mapsEmbedUrl: "https://maps.google.com/maps?q=22.7041,75.8577&z=15&output=embed",
-    mapsLinkUrl: "https://maps.app.goo.gl/YAkhNBkWEapZbgyJ7?g_st=aw",
+    mapsEmbedUrl: "https://maps.app.goo.gl/F3S8i3gWjzYpcnVv7?g_st=ic&output=embed",
+    mapsLinkUrl: "https://maps.app.goo.gl/F3S8i3gWjzYpcnVv7?g_st=ic",
   },
 
   // Drop transparent PNGs into /public/assets. Missing files fall back to an ornamental frame.
