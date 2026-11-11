@@ -49,7 +49,7 @@ export function RoyalPage() {
       <div className="mx-auto mt-10 grid max-w-xl grid-cols-2 items-center gap-5 px-3">
         <div className="flex flex-col items-center justify-center">
           <a href="#details" className="rise block w-full transition-transform hover:scale-105" style={{ animationDelay: ".6s" }} aria-label="For wedding details, click here">
-            <img src={musicianArt.url} alt="Shehnai player beside a 'For Wedding Details — Click Here' sign" loading="lazy" className="w-full" />
+            <img src={musicianArt} alt="Shehnai player beside a 'For Wedding Details — Click Here' sign" loading="lazy" className="w-full" />
           </a>
         </div>
         <div className="rise" style={{ animationDelay: ".7s" }}><DateCard /></div>
