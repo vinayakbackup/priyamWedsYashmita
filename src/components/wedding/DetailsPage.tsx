@@ -90,7 +90,7 @@ export function DetailsPage() {
       <p className="mx-auto mt-3 max-w-xs font-serif text-sm tracking-[0.2em] text-muted-foreground">Everything you need to celebrate with us — from ceremonies and timings to the venue and festivities.</p>
 
       <div className="relative mx-auto mt-10 w-64 -rotate-3 sm:w-72">
-        <div className="photo-frame p-3"><img src={couplePhoto.url} alt={`${couple.groom} and ${couple.bride}`} loading="lazy" className="h-auto w-full object-contain" /></div>
+        <div className="photo-frame p-3"><img src={couplePhoto} alt={`${couple.groom} and ${couple.bride}`} loading="lazy" className="h-auto w-full object-contain" /></div>
         <div className="wax-seal absolute -right-6 -top-6 grid h-16 w-16 place-items-center rounded-full font-script text-2xl text-ivory" aria-hidden>{initials}</div>
       </div>
 
