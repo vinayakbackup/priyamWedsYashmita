@@ -1,9 +1,9 @@
 // ✏️ EDIT THIS FILE — every name, date, venue and link on the site comes from here.
 // All content lives here. Update names, dates, venues and links in one place.
 
-import combinedArt from "@/assets/couple_arch_scroll.png.asset.json";
+import combinedArt from "@/assets/couple_arch_scroll.png";
 import aajSajeya from "@/assets/aaj_sajeya_song.mp3";
-import mandapArt from "@/assets/couple_arch.png.asset.json";
+import mandapArt from "@/assets/couple_arch.png";
 import haldiArt from "@/assets/couple_haldi.png";
 import sangeetArt from "@/assets/couple_sangeet.png";
 import pherasArt from "@/assets/couple_pheras.png";
