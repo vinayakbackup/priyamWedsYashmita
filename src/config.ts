@@ -52,13 +52,13 @@ export const config = {
   // Drop transparent PNGs into /public/assets. Missing files fall back to an ornamental frame.
   assets: {
     // Combined artwork (arch + scroll + tassels + couple). Set to "" to use the separate layers below.
-    combined: combinedArt.url,
-    printArt: mandapArt.url,
+    combined: combinedArt,
+    printArt: mandapArt,
     hero: "/assets/hero.png",
     couple: "/assets/couple.png",
     arch: "/assets/arch.png",
     scroll: "/assets/scroll.png",
     tassel: "/assets/tassel.png",
   },
-  music: { src: aajSajeya.url, autoplayOnOpen: true },
+  music: { src: aajSajeya, autoplayOnOpen: true },
 };
