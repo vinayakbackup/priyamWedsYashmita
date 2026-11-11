@@ -1,5 +1,5 @@
 import { config } from "@/config";
-import musicianArt from "@/assets/musician_banner.png.asset.json";
+import musicianArt from "@/assets/musician_banner.png";
 import { Divider } from "@/components/wedding/Art";
 import standingArt from "@/assets/couple_standing.png";
 
