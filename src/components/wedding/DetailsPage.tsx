@@ -68,7 +68,7 @@ function EventBlock({ e }: { e: WeddingEvent }) {
         <div>
           {e.description && <p className="font-serif text-sm leading-snug text-ivory sm:text-base">{e.description}</p>}
           <ul className="event-line mt-6 space-y-7 pl-6 font-serif text-sm text-ivory">
-            <li>{e.time} onwards<span className="block text-xs text-muted-foreground">{fmt(e.date, { weekday: "short", day: "numeric", month: "short" })}</span></li>
+            <li>{e.time} onwards<span className="block text-sm text-muted-foreground">{fmt(e.date, { weekday: "short", day: "numeric", month: "short" })}</span></li>
           </ul>
 
         </div>
