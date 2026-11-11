@@ -7,7 +7,7 @@ const fmt = (d: string, o: Intl.DateTimeFormatOptions) =>
   new Date(d.length === 10 ? d + "T12:00:00" : d).toLocaleDateString("en-IN", { ...o, timeZone: config.timeZone });
 
 import archBanner from "@/assets/banner_arch.jpg";
-import couplePhoto from "@/assets/priyam_yashmita_photo.jpg.asset.json";
+import couplePhoto from "@/assets/priyam_yashmita_photo.jpg";
 
 function DayBadge({ n }: { n: number }) {
   return (
