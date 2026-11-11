@@ -45,7 +45,7 @@ export const config = {
     address: "Indore, Madhya Pradesh",
     lat: 22.7041,
     lng: 75.8577,
-    mapsEmbedUrl: "https://maps.app.goo.gl/F3S8i3gWjzYpcnVv7?g_st=ic&output=embed",
+    mapsEmbedUrl: "https://www.openstreetmap.org/export/embed.html?bbox=75.847%2C22.694%2C75.868%2C22.714&layer=mapnik&marker=22.7041%2C75.8577",
     mapsLinkUrl: "https://maps.app.goo.gl/F3S8i3gWjzYpcnVv7?g_st=ic",
   },
 
